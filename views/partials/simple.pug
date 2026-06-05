@@ -1,0 +1,51 @@
+doctype html
+html(lang='en-US')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='content-type', content='text/html; charset=utf-8')
+
+        title= 'Dargonterdle ' + title
+
+        meta(name='description', content='A word game based on Wordle')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+
+        script(src='/theme.js')
+        link(rel='stylesheet', href='/main.css')
+    
+    body
+        header
+            h1
+                a(href='/') Dargonterdle
+
+        main#main-content
+            if error
+                aside.alert.alert-error
+                    p= error
+            if info
+                aside.alert.alert-info
+                    p= info
+            
+            block content
+
+        footer
+            p 
+                a(href='/') Back to the game!
+            p 
+                | Your user ID: 
+                span.user-id= userId 
+                |  (
+                a(href='/privacy') privacy policy
+                | )
+                if isAdmin
+                    |  (
+                    a(href="/admin") admin
+                    | )
+                
+            p 
+                | Yes, it's a 
+                a(href='https://www.powerlanguage.co.uk/wordle/') Wordle
+                |  clone.
+            p
+                | &copy; Jordan Kasper 2021 | See this code on 
+                a(href='https://github.com/jakerella/guessle' target='_blank' title='View the Wordle Clone code on GitHub')
+                    | GitHub
